@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   hello:
@@ -19,5 +20,15 @@ jobs:
       - name: Show Branch
         run: echo "Current branch is $GITHUB_REF_NAME"
 
+      - name: Show Author
+        run: echo "Current author is $GITHUB_ACTOR"
+
       - name: Finish
         run: echo "Workflow completed successfully!"
+
+  summary:
+    runs-on: ubuntu-latest
+    needs: hello
+    steps:
+      - name: Show Summary
+        run: echo "This is the summary of the workflow."
