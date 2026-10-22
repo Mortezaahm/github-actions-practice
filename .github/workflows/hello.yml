@@ -32,3 +32,10 @@ jobs:
     steps:
       - name: Show Summary
         run: echo "This is the summary of the workflow."
+
+  goodbye:
+    runs-on: ubuntu-latest
+    needs: summary
+    steps:
+      - name: Show Goodbye
+        run: echo "This is the goodbye message for the workflow."
